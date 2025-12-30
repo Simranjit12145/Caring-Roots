@@ -1,0 +1,9 @@
+<p-select class="p-inputicon country_select" [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name"
+    name="country" [filter]="false" filterBy="name" [showClear]="false" placeholder="Select">
+    <ng-template #selectedItem let-selectedOption>
+        <img [src]="'https://flagcdn.com/w40/' + selectedOption.code.toLowerCase() + '.png'" width="20" />
+    </ng-template>
+    <ng-template let-country #item>
+        <img [src]="'https://flagcdn.com/w40/' + country.code.toLowerCase() + '.png'" width="20" />
+    </ng-template>
+</p-select>

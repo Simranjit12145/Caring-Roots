@@ -1,0 +1,167 @@
+<section class="home_banner ub_spc" id="home">
+  <div class="container text_center text_white">
+    <h1>When someone you love needs care <span class="d_block"> at home, trust matters.</span></h1>
+    <p>At Caring Roots Home Care Inc., we understand how difficult it can be for families to make care decisions for a
+      parent, spouse, or loved one. Our mission is simple: to provide dependable, compassionate home care that families
+      can truly count on.</p>
+    <p>We believe people deserve to remain safely and comfortably in their own homes for as long as possible. Our
+      caregivers provide respectful, person-centred support designed around each individual’s needs, routines, and
+      preferences—while offering families peace of mind.</p>
+  </div>
+</section>
+
+<section class="local_care_sc u_spc" id="company">
+  <div class="container">
+    <div class="local_care_grid gap_p">
+      <div class="lt">
+        <h2>Local Care, Rooted in <span class="d_block"> the Community</span></h2>
+        <p>Caring Roots Home Care Inc. proudly serves
+          Miramichi and surrounding communities,
+          supporting families throughout the region with
+          reliable, in-home care. Our local focus allows us to
+          respond quickly, communicate clearly, and deliver care that reflects the values of the communities we serve.
+        </p>
+      </div>
+      <div class="rt">
+        <figure>
+          <img src="{{assetsConst.localCare}}" alt="local care image">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="home_care_service" id="services">
+  <div class="container">
+    <ul class="home_care_list">
+      <li>
+        <p>
+          Personal care
+          <span class="d_block">(bathing, dressing, grooming)</span>
+        </p>
+      </li>
+
+      <li>
+        <p>Medication reminders</p>
+      </li>
+
+      <li>
+        <p>
+          Meal preparation and
+          <span class="d_block">light housekeeping</span>
+        </p>
+      </li>
+
+      <li>
+        <p>Mobility and transfer assistance</p>
+      </li>
+
+      <li>
+        <p>
+          Respite care for
+          <span class="d_block">family caregivers</span>
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Companionship and
+          <span class="d_block">emotional support</span>
+        </p>
+      </li>
+
+      <li>
+        <p>Post-hospital or recovery support</p>
+      </li>
+
+      <li>
+        <figure>
+          <img src="{{assetsConst.logo}}" alt="logo">
+        </figure>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<section class="our_services u_spc" id="care">
+  <div class="container">
+    <div class="s_head mb_60 text_center">
+      <h2>Our Services at Caring Roots Home Care</h2>
+      <p>At Caring Roots Home Care, we are dedicated to providing reliable, compassionate, and respectful <span
+          class="d_block">care that allows individuals to live safely and comfortably in their own homes.</span></p>
+    </div>
+    <div class="our_service_grid gap_m hd_5">
+      <ng-container *ngFor="let service of services">
+        <ng-container *ngTemplateOutlet="serviceCard; context: { $implicit: service }"></ng-container>
+      </ng-container>
+
+    </div>
+
+    <div class="our_service_grid  hd_5">
+
+
+      <p-carousel class="d-mobile" [value]="services" [numVisible]="1" [numScroll]="1" [circular]="true"
+        [showIndicators]="true" [showNavigators]="false" [autoplayInterval]="4000">
+        <ng-template pTemplate="item" let-service>
+          <ng-container *ngTemplateOutlet="serviceCard; context: { $implicit: service }"></ng-container>
+        </ng-template>
+      </p-carousel>
+
+
+
+    </div>
+
+    <ng-template #serviceCard let-service>
+      <div class="service_box">
+        <figure>
+          <img [src]="service.image" [alt]="service.title" />
+        </figure>
+
+        <div class="service_cnt">
+          <h3 class="fw_600">{{ service.title }}</h3>
+          <p>
+            <small>{{ service.description }}</small>
+          </p>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+</section>
+
+<section class="guide_principal" id="principals">
+  <div class="container">
+    <div class="s_head text_center">
+      <h2>Our Guiding Principals</h2>
+    </div>
+    <div class="guidline_grid  gap_p">
+      <div class="lt">
+        <p-accordion [value]="0">
+          <p-accordion-panel *ngFor="let item of accordionItems" [value]="item.value">
+            <p-accordion-header>
+              {{ item.header }}
+            </p-accordion-header>
+
+            <p-accordion-content>
+              <p class="m-0" [innerHTML]="item.content">
+
+              </p>
+            </p-accordion-content>
+          </p-accordion-panel>
+        </p-accordion>
+      </div>
+
+      <div class="rt">
+        <figure>
+          <img src="{{assetsConst.guideLineImage}}" alt="icon">
+        </figure>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<caring-roots-contact-us />

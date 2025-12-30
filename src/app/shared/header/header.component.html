@@ -1,0 +1,71 @@
+<header class="site_header" [ngClass]="{
+    'scrolled': isScrolled,
+  
+  }">
+  <div class="container">
+    <nav>
+      <figure class="site_logo" routerLink="/"><img [src]="assetsConst.logo" alt="Logo"></figure>
+   <ul class="site_menu" [class.active]="menuOpen">
+  <li>
+    <a
+      (click)="onMenuClick('home')"
+      [class.active]="activeSection === 'home'"
+    >
+      Home
+    </a>
+  </li>
+
+  <li>
+    <a
+      (click)="onMenuClick('services')"
+      [class.active]="activeSection === 'services'"
+    >
+      Services
+    </a>
+  </li>
+
+  <li>
+    <a
+      (click)="onMenuClick('company')"
+      [class.active]="activeSection === 'company'"
+    >
+      Company
+    </a>
+  </li>
+
+  <li>
+    <a
+      (click)="onMenuClick('care')"
+      [class.active]="activeSection === 'care'"
+    >
+      Care Services
+    </a>
+  </li>
+
+  <li>
+    <a
+      (click)="onMenuClick('principals')"
+      [class.active]="activeSection === 'principals'"
+    >
+      Our Guiding Principals
+    </a>
+  </li>
+
+  <li>
+    <a
+      (click)="onMenuClick('contact')"
+      [class.active]="activeSection === 'contact'"
+    >
+      Contact
+    </a>
+  </li>
+</ul>
+
+
+<button class="navbar-toggler"  [class.active]="menuOpen"
+  (click)="menuOpen = !menuOpen"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </button>
+
+    
+    </nav>
+  </div>
+</header>

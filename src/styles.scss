@@ -1,0 +1,404 @@
+
+@import "./assets/css/variables.scss";
+@import "./assets/css/reset.scss";
+
+.home_banner{
+  height: calc(100vh);
+  background: url('./assets/images/home_banner_bg.jpg') no-repeat center;
+  background-size: cover;
+  padding-top: 140px;
+  display: flex;
+  align-items: center;
+  min-height: 690px;
+  max-height: 700px;
+  position: relative;
+  z-index: 2;
+       @include breakpoint(ipad){
+        min-height: 600px;
+       }
+       @include breakpoint(mobile){
+        min-height: 400px;
+       }
+  &::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: $c_gradient;
+    z-index: -1;
+  }
+  p{
+    font-size: 20px;
+      @include breakpoint(ipad_landscape){
+        font-size: 18px;
+      }
+       @include breakpoint(ipad){
+        font-size: 16px;
+       }
+       @include breakpoint(mobile){
+        font-size: 14px;
+       }
+  }
+}
+body{
+  &:has(.content){
+  .content{
+    padding-top: 0;
+  }
+  }
+}
+
+.local_care_grid{
+   
+  > .lt, > .rt{
+    width: 50%;
+       @include breakpoint(mobile){
+        width: 100%;
+        text-align: center;
+       }
+  }
+  .lt{
+    h2{
+      margin-bottom: 30px;
+      @include breakpoint(ipad_landscape){
+        margin-bottom: 20px;
+      }
+       @include breakpoint(mobile){
+        margin-bottom: 16px;
+       }
+    }
+    p{
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.2;
+      max-width: 550px;
+      @include breakpoint(ipad_landscape){
+        font-size: 20px;
+      }
+       @include breakpoint(ipad){
+        font-size: 16px;
+       }
+       @include breakpoint(mobile){
+        font-size: 14px;
+       }
+    }
+  }
+       @include breakpoint(mobile){
+        .rt{
+          figure{
+            max-width: 350px;
+            margin-inline: auto;
+          }
+        }
+       }
+}
+
+.home_care_list{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+       @include breakpoint(ipad){
+        gap: 30px;
+       }
+       @include breakpoint(mobile_small){
+        gap: 12px;
+       }
+
+  li{
+    width: calc(50% - 30px);
+    margin: 0;
+       @include breakpoint(ipad){
+    width: calc(50% - 15px);
+
+       }
+       
+       @include breakpoint(mobile){
+        margin: 0 !important;
+        border-radius: 10px 0 10px 0;
+        border: 1px solid $c_border;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 80px;
+       }
+       @include breakpoint(mobile_small){
+        padding: 5px;
+    width: calc(50% - 6px);
+
+       }
+  
+    p{
+      max-width: 342px;
+        font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+       @include breakpoint(ipad){
+        font-size: 18px;
+        span{
+
+          display: block;
+        }
+       }
+       @include breakpoint(mobile){
+        font-size: 16px;
+        margin: 0 !important;
+        span{
+          display: inline;
+        }
+       }
+       @include breakpoint(mobile_small){
+        font-size: 13px;
+       }
+      
+
+    }
+    &:first-child{
+      p{
+        margin-left: 10%;
+      }
+    }
+    &:nth-child(even){
+     p{
+       margin-left: 30%;
+     }
+    }
+       &:nth-child(4){
+     p{
+       margin-left: 40%;
+     }
+    }
+
+       &:nth-child(6){
+     p{
+       margin-left: 38%;
+     }
+    }
+       &:nth-child(7){
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+     p{
+       margin-inline: auto;
+       max-width: 100%;
+     }
+    }
+        &:nth-child(5){
+     p{
+       margin-left: 20%;
+     }
+    }
+
+    &:last-child{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50% ,-50%);
+      width: 350px;
+      @include breakpoint(ipad_landscape){
+        width: 300px;
+      }
+       @include breakpoint(ipad){
+        width: 200px;
+       }
+       @include breakpoint(mobile){
+
+        display: none;
+       }
+      figure{
+        width: 100%;
+      }
+    }
+  }
+}
+
+.our_services{
+  .s_head{
+    margin-bottom: 110px;
+    @include breakpoint(ipad_landscape){
+      margin-bottom: 70px;
+    }
+       @include breakpoint(ipad){
+        margin-bottom: 30px;
+       }
+    h2{
+      margin-bottom: 24px;
+       @include breakpoint(ipad){
+        margin-bottom: 18px;
+       }
+    }
+    p{
+      font-size: 20px;
+       @include breakpoint(ipad){
+        font-size: 16px;
+       }
+        @include breakpoint(mobile_small){
+        font-size: 14px;
+       }
+    }
+  }
+}
+
+.our_service_grid {
+
+    @include breakpoint(ipad_landscape){
+   --gap_y: 16px;
+    --gap_x: 16px;
+    }
+
+    &:not(.gap_m){
+      display: none;
+      @include breakpoint(mobile){
+        display: flex;
+      }
+
+    }
+    &.gap_m{
+       @include breakpoint(mobile){
+        display: none;
+      }
+    }
+   
+    .service_box{
+      width: calc(100%/4 - var(--gap_x));
+      border-radius: 0 20px 0 20px;
+      padding: 20px;
+      border: 1px solid $c_border;
+      transition: $transition;
+    @include breakpoint(ipad_landscape){
+      padding: 10px;
+    }
+       @include breakpoint(ipad){
+      width: calc(100%/2 - var(--gap_x));
+
+       }
+       @include breakpoint(mobile){
+        width: 100%;
+        text-align: center;
+       }
+      &:nth-child(odd){
+        position: relative;
+        top: -50px;
+    @include breakpoint(ipad_landscape){
+      top: -30px;
+    }
+       @include breakpoint(ipad){
+        top: 0;
+       }
+      }
+      &:hover{
+        border-color: $c_primary;
+        transform: translateY(-2px);
+      }
+      > figure{
+        width: 100%;
+        height: 120px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .service_cnt{
+        margin-top: 10px;
+        p{
+          line-height: 1.1;
+        }
+    @include breakpoint(ipad_landscape){
+      h3{
+        font-size: 16px;
+      }
+    }
+      }
+    }
+}
+
+
+.guidline_grid{
+  >.lt,>.rt{
+    width: 50%;
+       @include breakpoint(ipad){
+        width: 100%;
+       }
+  }
+       @include breakpoint(ipad){
+
+  > .rt{
+    display: none;
+  }
+}
+}
+
+.contact_grid{
+  > .lt,> .rt{
+    width: calc(100%/2 - var(--gap_x));
+    padding: 20px;
+    border-radius: 0 40px 0 40px ;
+    border: 1px solid $c_border;
+     @include breakpoint(mobile){
+    width: calc(100% - var(--gap_x));
+
+     }
+  }
+  > .rt{
+    border-color: $c_primary;
+    background: $c_primary;
+    box-shadow:
+  0 6px 8px -6px rgba(0, 5, 28, 0.12),
+  0 8px 16px -6px rgba(0, 5, 28, 0.08);
+  position: relative;
+  overflow: hidden;
+  &::before{
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 512px;
+    height: 512px;
+    background: url('./assets/images/contact_us_bg.png') no-repeat center;
+    background-size: 100%;
+    pointer-events: none;
+  }
+  .business_info_list{
+    li{
+      span{
+        font-size: 16px;
+        @include breakpoint(mobile){
+          font-size: 14px;
+        }
+      }
+      strong{
+        font-size: 16px;
+        font-weight: 600;
+          @include breakpoint(mobile){
+          font-size: 14px;
+        }
+      }
+        @include breakpoint(mobile){
+          &:not(:last-child){
+            margin-bottom: 8px;
+          }
+        }
+    }
+  }
+  > p {
+    font-size: 16px;
+    span{
+      margin-top: 3px;
+      font-weight: 500;
+      @include breakpoint(ipad){
+        display: block;
+      }
+    }
+        @include breakpoint(mobile){
+          font-size: 14px;
+        }
+  }
+  }
+}
+.form_grid.gap_p{
+      --gap_y: 18px;
+    --gap_x: 18px;
+}

@@ -1,0 +1,202 @@
+@import '../../../assets/css/variables.scss';
+
+.site_header {
+  ::ng-deep {
+    top: 50px;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    transition: $transition;
+   
+    z-index: 99;
+    @include breakpoint(mobile){
+      top: 20px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+     border-radius: 0 40px 0 40px;
+      transition: $transition;
+   
+      padding: 0px 50px;
+       background-color: $c_white;
+         @include breakpoint(ipad_landscape){
+          padding-inline: 30px;
+         }
+    @include breakpoint(mobile){
+      padding-inline: 20px;
+      width: 95%;
+      
+    }
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 30px;
+
+      .site_logo {
+        display: inline-flex;
+        cursor: pointer;
+
+        img {
+          width: 70px;
+          min-width: 70px;
+          object-fit: contain;
+          transition: $transition;
+        }
+      }
+
+      .site_menu {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 0;
+        gap: 18px;
+        align-self: stretch;
+
+        @include breakpoint(mobile){
+          position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition;
+    transform: translateX(100%);
+    gap: 8px;
+
+    &.active{
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      li{
+        min-height: 1px !important;
+        border-bottom:2px solid transparent ;
+         align-self: flex-start;
+         padding: 0;
+      }
+    }
+        }
+
+        li {
+          font-size: 18px;
+          font-weight: 600;
+          display: inline-flex;
+          text-transform: capitalize;
+          white-space: nowrap;
+          position: relative;
+          cursor: pointer;
+          margin: 0;
+          align-self: stretch;
+          align-items: center;
+             min-height: 90px;
+             padding-block: 5px;
+             border-bottom: 5px solid transparent;
+            
+             @include breakpoint(ipad_landscape){
+              font-size: 15px;
+             }
+             &:has(.active){
+              border-color: $c_primary;
+             }
+
+          a {
+            color: $c_black;
+            display: inline-flex;
+            padding: 3px 0;
+
+            &:hover, &.active {
+              color: $c_primary;
+            }
+
+          }
+        }
+      }
+
+    }
+  .navbar-toggler {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  width: 36px;
+  height: 28px;
+  position: relative;
+  display: none;
+  @include breakpoint(mobile){
+    display: inline-flex;
+  }
+
+  .line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: $c_primary;
+    border-radius: 3px;
+    transition: transform 0.35s ease, opacity 0.25s ease;
+  }
+
+  .line:nth-child(1) {
+    top: 0;
+  }
+
+  .line:nth-child(2) {
+    top: 12px;
+    width: 70%;
+    right: 0;
+    left: auto;
+  }
+
+  .line:nth-child(3) {
+    top: 24px;
+  }
+
+  &.active {
+    .line:nth-child(1) {
+      top: 12px;
+      transform: rotate(45deg);
+    }
+
+    .line:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .line:nth-child(3) {
+      top: 12px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+  }
+
+
+
+  &.scrolled {
+ top: 0;
+
+
+    .container {
+    
+        box-shadow:
+  0 8px 22px -6px rgba(0, 5, 28, 0.12),
+  0 14px 64px -4px rgba(0, 5, 28, 0.08);
+  nav{
+    .site_menu{
+      li{
+        min-height: 77px;
+      }
+    }
+  }
+    }
+
+  
+  }
+}

@@ -1,0 +1,87 @@
+<section class="contact_sc ut_spc" id="contact">
+    <div class="container">
+        <div class="s_head text_center">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact_grid gap_m">
+            <div class="lt">
+
+                <div class="s_head mb_24">
+                    <h3>Send a Message</h3>
+                </div>
+                <form [formGroup]="contactForm" class="form">
+                    <div class="form_grid gap_p">
+                        <div class="w_100">
+                            <input class="form_field" pInputText formControlName="name" placeholder="Enter your name" />
+                            <span class="error-text" *ngIf="f['name'].touched && f['name'].invalid">
+                                <span *ngIf="f['name'].errors?.['required']">
+                                    Name is required
+                                </span>
+                                <span *ngIf="f['name']?.errors?.['minlength']">
+                                    Name must be at least 2 characters
+                                </span>
+                            </span>
+                        </div>
+                        <div class="w_100">
+                            <input class="form_field" pInputText formControlName="email"
+                                placeholder="Enter your email" />
+                            <span class="error-text" *ngIf="f['email'].touched && f['email'].invalid">
+                                <span *ngIf="f['email'].errors?.['required']">
+                                    Email is required
+                                </span>
+                                <span *ngIf="f['email'].errors?.['email']">
+                                    Please enter a valid email address
+                                </span>
+                            </span>
+                        </div>
+                        <div class="w_100">
+                            <p-dropdown class="form_field" [options]="reasonOptions" formControlName="title"
+                                placeholder="Select your reason" optionLabel="label" optionValue="value">
+                            </p-dropdown>
+                            <span class="error-text" *ngIf="f['title'].touched && f['title'].invalid">
+                                Reason is required
+                            </span>
+                        </div>
+                        <div class="w_100">
+                            <textarea class="form_field" pTextarea formControlName="message"
+                                placeholder="Enter your message......."></textarea>
+                            <span class="error-text" *ngIf="f['message'].touched && f['message'].invalid">
+                                <span *ngIf="f['message'].errors?.['required']">
+                                    Message is required
+                                </span>
+                                <span *ngIf="f['message'].errors?.['minlength']">
+                                    Message must be at least 10 characters
+                                </span>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="btn_flex mt_30">
+                        <p-button (onClick)="sendEmail()" [disabled]="contactForm.invalid" class="w_100" label="Send" />
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="rt text_white">
+
+                <div class="s_head mb_24">
+                    <h3>Business Info</h3>
+
+
+                </div>
+                <ul class="business_info_list">
+                    <li *ngFor="let info of businessInfo">
+                        <span>{{ info.label }} :</span>
+                        <strong> {{ info.value }} </strong>
+                    </li>
+                </ul>
+                <p> <strong>Address: #210 50 Airport Drive Miramichi NB E1N 3A7</strong></p>
+                <p> <strong>Call today for a free consultation.</strong>
+                    <span class="d_block">Let us show you care you can count on.</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>

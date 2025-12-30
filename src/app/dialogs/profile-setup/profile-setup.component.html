@@ -1,0 +1,67 @@
+<section class="auth_sc">
+    <p-button class="cross_icon" (click)="closeDialog()"><img src="assets/images/cross.svg" alt="cross"></p-button>
+    <div class="auth_lt">
+        <figure>
+            <img src="assets/images/auth_img.png" alt="auth_img">
+        </figure>
+    </div>
+    <div class="auth_rt">
+        <div class="head hd_3">
+            <h2>Profile Setup</h2>
+            <p>Set up your profile and preferences</p>
+        </div>
+        <div class="inner">
+            <form action="" class="form">
+                <div class="form_grid gap_p">
+                    <div class="w_100">
+                        <ul class="upload_image circle gap_p">
+                            <li class="w_100">
+                                <figure>
+                                    <input type="file" />
+                                    <img [src]='assetsConst.dummyProfile' alt="Image" />
+                                    <figcaption class="edit">
+                                        <img [src]='assetsConst.addIcon' alt="Icon" />
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w_100">
+                        <p-iconfield>
+                            <p-inputicon class="pi pi-user" />
+                            <input class="form_field" pInputText placeholder="Enter Name" />
+                        </p-iconfield>
+                    </div>
+                    <div class="w_100">
+                        <p-iconfield>
+                            <caring-roots-country-select />
+                            <input class="form_field" pInputText placeholder="Enter Phone Number" />
+                        </p-iconfield>
+                    </div>
+                    <div class="w_100">
+                        <p-iconfield>
+                            <p-inputicon class="pi pi-envelope" />
+                            <input class="form_field" pInputText placeholder="Enter Email Address" />
+                        </p-iconfield>
+                    </div>
+                    <div class="w_100">
+                        <p-iconfield>
+                            <p-inputicon class="pi pi-lock" />
+                            <p-password class="form_field" placeholder="Enter password" [feedback]="false"
+                                [toggleMask]="true" />
+                        </p-iconfield>
+                    </div>
+                    <div class="w_100">
+                        <p-iconfield>
+                            <p-inputicon class="pi pi-lock" />
+                            <p-password class="form_field" placeholder="Confirm password" [feedback]="false"
+                                [toggleMask]="true" />
+                        </p-iconfield>
+                    </div>
+                </div>
+            </form>
+            <p-button class="w_100 sign_in"  (click)="closeDialog()" >Submit</p-button>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+@import "../../../assets/css/variables.scss";
+
+.layout-main-container {
+    width: calc(100% - 280px);
+
+    .layout-main {
+        padding: 20px 20px;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+}
+
+.layout-wrapper-closed {
+    .layout-main-container {
+        width: 100% ;
+    }
+}
+
+.layot_dv {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
