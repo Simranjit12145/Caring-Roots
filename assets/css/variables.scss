@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+html:root {
+  --p-primary-color: #232E16;
+  --p-primary-light-color: #232E16B2;
+  --p-secondary-color: #873600;
+  --p-success-color: #00AE4C;
+  --p-warning-color: #DD8100;
+  --p-danger-color: #F93635;
+  --p-white-color: #ffffff;
+  --p-black-color: #000000;
+  --c_heading: #232E16;
+  --p-primary-hover-color: var(--p-secondary-color);
+
+  // Button Colors
+  --p-password-icon-color: #000000;
+  --p-button-label-font-weight: 400;
+
+  --p-button-text-primary-hover-background: transparent;
+  --p-button-text-primary-active-background: transparent;
+  --p-button-primary-active-background: var(--p-secondary-color);
+  --p-button-primary-active-border-color: var(--p-secondary-color);
+
+  --p-button-secondary-background: var(--p-secondary-color);
+  --p-button-secondary-border-color: var(--p-secondary-color);
+  --p-button-secondary-color: var(--p-white-color);
+  --p-button-secondary-hover-background: var(--p-primary-color);
+  --p-button-secondary-hover-border-color: var(--p-primary-color);
+  --p-button-secondary-hover-color: var(--p-white-color);
+  --p-button-secondary-active-background: var(--p-primary-color);
+  --p-button-secondary-active-border-color: var(--p-primary-color);
+  --p-button-secondary-active-color: var(--p-white-color);
+
+  --p-button-contrast-background: var(--p-black-color);
+  --p-button-contrast-border-color: var(--p-black-color);
+  --p-button-contrast-color: var(--p-white-color);
+  --p-button-contrast-hover-background: var(--p-black-color);
+  --p-button-contrast-hover-border-color: var(--p-black-color);
+  --p-button-contrast-hover-color: var(--p-primary-color);
+  --p-button-contrast-active-background: var(--p-black-color);
+  --p-button-contrast-active-border-color: var(--p-black-color);
+  --p-button-contrast-active-color: var(--p-primary-color);
+
+  --p-button-danger-background: var(--p-danger-color);
+  --p-button-danger-border-color: var(--p-danger-color);
+  --p-button-danger-color: var(--p-white-color);
+
+  --p-mask-background: #121212B2;
+  --p-toggleswitch-checked-background: var(--p-success-color);
+  --p-badge-min-width: 18px;
+  --p-badge-height: 18px;
+
+  --p-tag-secondary-background: var(--p-secondary-color);
+  --p-tag-secondary-color: var(--c_heading);
+  --p-button-outlined-primary-border-color: var(--c-primary);
+}
+
+$c_primary: var(--p-primary-color);
+$c_primary_light: var(--p-primary-light-color);
+
+$c_gradient:   linear-gradient(0deg, rgba(35, 46, 22, 0.7), rgba(35, 46, 22, 0.7)),
+  linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+$c_success: var(--p-success-color);
+$c_warning: var(--p-warning-color); 
+$c_danger: var(--p-danger-color);
+$c_grey: #D9D9D9;
+$c_grey_light: #FFF6F0;
+$c_border: #D3D8DD;
+$c_form_border: #E9EDF2;
+
+$c_text: #707070;
+$c_heading: #000000;
+$c_black: #000000;
+$c_white: #ffffff;
+
+$transition: all 0.3s ease-in-out 0s;
+$shadow: 0px 9px 20px 3px #0000001A;
+$f_body: "Nunito", sans-serif;
+
+$radius_30: 30px;
+$radius_20: 20px;
+$radius_15: 15px;
+$radius_10: 10px;
+
+@mixin img_contain($object: contain) {
+  width: 100%;
+  height: 100%;
+  object-fit: $object;
+}
+
+
+
+@mixin content-limit($line) {
+  white-space: normal;
+  display: -webkit-box !important;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Media queries
+$breakpoints: (
+  min_desktop: 1500px,
+  desktop: 1499.98px,
+  laptop: 1399.98px,
+  ipad_landscape: 1199.98px,
+  ipad: 991.98px,
+  mobile: 767.98px,
+  mobile_small: 575.98px,
+  min_ipad: 768px
+);
+
+@mixin breakpoint($point) {
+  $width: map-get($breakpoints, $point);
+
+  @if $point ==min_desktop {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+  }
+
+  @else if $point ==min_ipad {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+  }
+
+  @else {
+    @media only screen and (max-width: $width) {
+      @content;
+    }
+  }
+}
