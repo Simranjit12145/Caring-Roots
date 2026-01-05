@@ -118,10 +118,56 @@ services = [
       <strong class"d_block">Because trust matters when caring for someone you love.</strong>`
     }  
   ];
+
+careerSections = [
+  {
+    icon:this.assetsConst.carerrIcon,
+    title: 'Why Work With Caring Roots?',
+    points: [
+      'Supportive and approachable management',
+      'Respectful scheduling and clear expectations',
+      'Ethical, professional workplace culture',
+      'Open communication and ongoing support',
+      'Appreciation for the work you do'
+    ]
+  },
+  {
+    icon:this.assetsConst.carerrIcon2,
+    title: 'Your Role as a PSW',
+    points: [
+      'Assist clients with personal care and activities of daily living',
+      'Promote dignity, comfort, and independence',
+      'Provide companionship and emotional support',
+      'Follow individualized care plans'
+    ]
+  },
+  {
+    icon:this.assetsConst.carerrIcon3,
+    title: 'What We’re Looking For',
+    points: [
+      'PSW certificate',
+      'Compassionate, reliable, and professional approach',
+      'Clear criminal record check',
+      'First Aid / CPR (or willingness to obtain)'
+    ]
+  }
+];
+
+
+
 constructor(){
   Carousel.prototype.onTouchMove = () => { };
 }
 
-
+scrollTo(sectionId: string) {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    console.log(element)
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+onMenuClick(sectionId: string) {
+this.scrollTo(sectionId);
+}
 
 }

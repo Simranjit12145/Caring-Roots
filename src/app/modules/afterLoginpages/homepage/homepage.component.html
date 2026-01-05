@@ -164,4 +164,74 @@
   </div>
 </section>
 
+<section class="career_sc ut_spc" id="career">
+  <div class="container">
+
+    <div class="career_cta  text_white">
+      <h2>Now Hiring</h2>
+      <p><b class="underline"><a (click)="onMenuClick('contact')">Now Hiring</a></b> Personal Support Workers (PSWs)</p>
+    </div>
+    
+
+    <div class="s_head ">
+      <!-- <h2>Who We Are</h2> -->
+      <p>Caring Roots Home Care Inc. is a locally owned home care agency committed to providing dependable,
+respectful care in the community. We believe quality care begins with valued, supported PSWs. Our focus
+is on professionalism, communication, and mutual respect</p>
+    </div>
+
+   <div class="gap_m career_grid hd_5">
+  <div
+    class="career_box"
+    *ngFor="let section of careerSections"
+  >
+    <figure>
+      <img [src]="section.icon" alt="icon" />
+    </figure>
+
+    <h3>{{ section.title }}</h3>
+
+    <ul>
+      <li *ngFor="let item of section.points">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="schedule_box">
+  <h3> <span>Training & Support</span> </h3>
+  <p>We provide orientation, clear care plans, and ongoing support from our office team so you never feel alone
+in your role.</p>
+</div>
+
+<div class="schedule_box">
+  <h3><span>Scheduling</span></h3>
+  <p>Full-time and part-time opportunities available. Day, evening, and weekend shifts may be offered based
+on availability and client needs.</p>
+</div>
+
+<!-- <div class="schedule_box">
+  <h3><span>How to apply</span></h3>
+  <p>Serving Miramichi and surrounding areas</p>
+<div class="form_grid">
+    <div class="control_group">
+                            <input class="form_field" pInputText  placeholder="Phone" />
+                           
+                        </div>
+                            <div class="control_group">
+                            <input class="form_field" pInputText  placeholder="Email" />
+                           
+                        </div>
+                        <div class="btn_flex">
+                              <p-button  label="Send" />
+                        </div>
+</div>
+
+</div> -->
+
+
+  </div>
+</section>
+
 <caring-roots-contact-us />

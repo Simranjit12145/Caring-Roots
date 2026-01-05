@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
       'company',
       'care',
       'principals',
+      'career',
       'contact',
     ];
 
