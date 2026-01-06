@@ -473,6 +473,14 @@ body{
   }
 }
 
+@media (max-width: 767px) {
+  .career_grid {
+    .career_box {
+      width: calc(100% - var(--gap_x));
+    }
+  }
+}
+
 .schedule_box{
   margin-top: 16px;
   h3{
